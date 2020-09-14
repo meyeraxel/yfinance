@@ -25,7 +25,7 @@ import time as _time
 import multitasking as _multitasking
 import pandas as _pd
 from tqdm import tqdm
-import utils.tqdm_print
+#import utils.tqdm_print
 from . import Ticker, utils
 from . import shared
 
