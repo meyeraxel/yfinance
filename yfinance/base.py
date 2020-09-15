@@ -25,6 +25,7 @@ import time as _time
 import datetime as _datetime
 import pandas as _pd
 import numpy as _np
+import platform
 
 try:
     from urllib.parse import quote as urlencode
@@ -46,8 +47,10 @@ chrome_options.add_argument("--disable-dev-shm-usage")
 chrome_options.add_argument("--no-sandbox")
 chrome_options.add_argument("--disable-infobars")
 chrome_driver = '/usr/bin/chromedriver'
-driver = Chrome(options=chrome_options, executable_path=chrome_driver)
-
+if platform.system() != 'Windows':
+    driver = Chrome(options=chrome_options, executable_path=chrome_driver)
+else:
+    driver = Chrome(options=chrome_options)
 
 class TickerBase():
     def __init__(self, ticker):
